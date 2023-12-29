@@ -1,0 +1,309 @@
+{
+  "stations": [
+    {
+      "name": "South Hampstead",
+      "zone": 2,
+      "lines": [{ "name": "Line1", "order": 1 }]
+    },
+    {
+      "name": "Swiss Cottage",
+      "zone": 2,
+      "lines": [{ "name": "Line1", "order": 2 }]
+    },
+    {
+      "name": "St Johns Wood",
+      "zone": 2,
+      "lines": [{ "name": "Line1", "order": 3 }]
+    },
+    {
+      "name": "Baker Street",
+      "zone": 1,
+      "lines": [
+        { "name": "Line1", "order": 4 },
+        { "name": "Line3", "order": 1 }
+      ]
+    },
+    {
+      "name": "Bond Street",
+      "zone": 1,
+      "lines": [
+        { "name": "Line1", "order": 5 },
+        { "name": "Line2", "order": 3 },
+        { "name": "Line6", "order": 5 }
+      ]
+    },
+    {
+      "name": "Green Park",
+      "zone": 1,
+      "lines": [
+        { "name": "Line1", "order": 6 },
+        { "name": "Line5", "order": 3 },
+        { "name": "Line6", "order": 6 },
+        { "name": "Line7", "order": 3 }
+      ]
+    },
+    {
+      "name": "Westminster",
+      "zone": 1,
+      "lines": [
+        { "name": "Line1", "order": 7 },
+        { "name": "Line6", "order": 11 }
+      ]
+    },
+    {
+      "name": "Waterloo",
+      "zone": 1,
+      "lines": [
+        { "name": "Line1", "order": 8 },
+        { "name": "Line3", "order": 7 },
+        { "name": "Line4", "order": 6 }
+      ]
+    },
+    {
+      "name": "Holland Park",
+      "zone": 2,
+      "lines": [{ "name": "Line2", "order": 1 }]
+    },
+    {
+      "name": "Notting Hill Gate",
+      "zone": 2,
+      "lines": [
+        { "name": "Line2", "order": 2 },
+        { "name": "Line6", "order": 2 }
+      ]
+    },
+    {
+      "name": "Oxford Circus",
+      "zone": 1,
+      "lines": [
+        { "name": "Line2", "order": 4 },
+        { "name": "Line3", "order": 3 },
+        { "name": "Line5", "order": 2 }
+      ]
+    },
+    {
+      "name": "Tottenham Court Road",
+      "zone": 1,
+      "lines": [
+        { "name": "Line2", "order": 5 },
+        { "name": "Line4", "order": 2 }
+      ]
+    },
+    {
+      "name": "Regent's Park",
+      "zone": 1,
+      "lines": [{ "name": "Line3", "order": 2 }]
+    },
+    {
+      "name": "Piccadilly Circus",
+      "zone": 1,
+      "lines": [{ "name": "Line3", "order": 4 }]
+    },
+    {
+      "name": "Charing Cross",
+      "zone": 1,
+      "lines": [
+        { "name": "Line3", "order": 5 },
+        { "name": "Line4", "order": 4 }
+      ]
+    },
+    {
+      "name": "Embankment",
+      "zone": 1,
+      "lines": [
+        { "name": "Line3", "order": 6 },
+        { "name": "Line4", "order": 5 },
+        { "name": "Line6", "order": 12 }
+      ]
+    },
+    {
+      "name": "Warren Street",
+      "zone": 1,
+      "lines": [
+        { "name": "Line4", "order": 1 },
+        { "name": "Line5", "order": 1 }
+      ]
+    },
+    {
+      "name": "Leicester Square",
+      "zone": 1,
+      "lines": [
+        { "name": "Line4", "order": 3 },
+        { "name": "Line7", "order": 1 }
+      ]
+    },
+    {
+      "name": "Kennington",
+      "zone": 1,
+      "lines": [{ "name": "Line4", "order": 7 }]
+    },
+    {
+      "name": "Stockwell",
+      "zone": 1,
+      "lines": [
+        { "name": "Line4", "order": 8 },
+        { "name": "Line5", "order": 7 }
+      ]
+    },
+    {
+      "name": "Victoria",
+      "zone": 1,
+      "lines": [
+        { "name": "Line5", "order": 4 },
+        { "name": "Line6", "order": 10 }
+      ]
+    },
+    {
+      "name": "Pimlico",
+      "zone": 1,
+      "lines": [{ "name": "Line5", "order": 5 }]
+    },
+    {
+      "name": "Vauxhall",
+      "zone": 2,
+      "lines": [{ "name": "Line5", "order": 6 }]
+    },
+    {
+      "name": "Bayswater",
+      "zone": 1,
+      "lines": [{ "name": "Line6", "order": 1 }]
+    },
+    {
+      "name": "High Street Kensington",
+      "zone": 1,
+      "lines": [{ "name": "Line6", "order": 3 }]
+    },
+    {
+      "name": "Earl's Court",
+      "zone": 2,
+      "lines": [
+        { "name": "Line6", "order": 4 },
+        { "name": "Line7", "order": 7 }
+      ]
+    },
+    {
+      "name": "Gloucester Road",
+      "zone": 1,
+      "lines": [
+        { "name": "Line6", "order": 7 },
+        { "name": "Line7", "order": 6 }
+      ]
+    },
+    {
+      "name": "South Kensington",
+      "zone": 1,
+      "lines": [{ "name": "Line6", "order": 8 }]
+    },
+    {
+      "name": "Sloane Square",
+      "zone": 1,
+      "lines": [{ "name": "Line6", "order": 9 }]
+    },
+    {
+      "name": "Hyde Park Corner",
+      "zone": 1,
+      "lines": [{ "name": "Line7", "order": 4 }]
+    },
+    {
+      "name": "Knightsbridge",
+      "zone": 1,
+      "lines": [{ "name": "Line7", "order": 5 }]
+    },
+    {
+      "name": "Piccadilly Circus",
+      "zone": 1,
+      "lines": [{ "name": "Line7", "order": 2 }]
+    }
+  ],
+  "lines": [
+    {
+      "name": "Line1",
+      "stations": [
+        { "name": "South Hampstead", "order": 1 },
+        { "name": "Swiss Cottage", "order": 2 },
+        { "name": "St Johns Wood", "order": 3 },
+        { "name": "Baker Street", "order": 4 },
+        { "name": "Bond Street", "order": 5 },
+        { "name": "Green Park", "order": 6 },
+        { "name": "Westminster", "order": 7 },
+        { "name": "Waterloo", "order": 8 }
+      ]
+    },
+    {
+      "name": "Line2",
+      "stations": [
+        { "name": "Holland Park", "order": 1 },
+        { "name": "Notting Hill Gate", "order": 2 },
+        { "name": "Bond Street", "order": 3 },
+        { "name": "Oxford Circus", "order": 4 },
+        { "name": "Tottenham Court Road", "order": 5 }
+      ]
+    },
+    {
+      "name": "Line3",
+      "stations": [
+        { "name": "Baker Street", "order": 1 },
+        { "name": "Regent's Park", "order": 2 },
+        { "name": "Oxford Circus", "order": 3 },
+        { "name": "Piccadilly Circus", "order": 4 },
+        { "name": "Charing Cross", "order": 5 },
+        { "name": "Embankment", "order": 6 },
+        { "name": "Waterloo", "order": 7 }
+      ]
+    },
+    {
+      "name": "Line4",
+      "stations": [
+        { "name": "Warren Street", "order": 1 },
+        { "name": "Tottenham Court Road", "order": 2 },
+        { "name": "Leicester Square", "order": 3 },
+        { "name": "Charing Cross", "order": 4 },
+        { "name": "Embankment", "order": 5 },
+        { "name": "Waterloo", "order": 6 },
+        { "name": "Kennington", "order": 7 },
+        { "name": "Stockwell", "order": 8 }
+      ]
+    },
+    {
+      "name": "Line5",
+      "stations": [
+        { "name": "Warren Street", "order": 1 },
+        { "name": "Oxford Circus", "order": 2 },
+        { "name": "Green Park", "order": 3 },
+        { "name": "Victoria", "order": 4 },
+        { "name": "Pimlico", "order": 5 },
+        { "name": "Vauxhall", "order": 6 },
+        { "name": "Stockwell", "order": 7 }
+      ]
+    },
+    {
+      "name": "Line6",
+      "stations": [
+        { "name": "Bayswater", "order": 1 },
+        { "name": "Notting Hill Gate", "order": 2 },
+        { "name": "High Street Kensington", "order": 3 },
+        { "name": "Earl's Court", "order": 4 },
+        { "name": "Bond Street", "order": 5 },
+        { "name": "Green Park", "order": 6 },
+        { "name": "Gloucester Road", "order": 7 },
+        { "name": "South Kensington", "order": 8 },
+        { "name": "Sloane Square", "order": 9 },
+        { "name": "Victoria", "order": 10 },
+        { "name": "Westminster", "order": 11 },
+        { "name": "Embankment", "order": 12 }
+      ]
+    },
+    {
+      "name": "Line7",
+      "stations": [
+        { "name": "Leicester Square", "order": 1 },
+        { "name": "Piccadilly Circus", "order": 2 },
+        { "name": "Green Park", "order": 3 },
+        { "name": "Hyde Park Corner", "order": 4 },
+        { "name": "Knightsbridge", "order": 5 },
+        { "name": "Gloucester Road", "order": 6 },
+        { "name": "Earl's Court", "order": 7 }
+      ]
+    }
+  ]
+}

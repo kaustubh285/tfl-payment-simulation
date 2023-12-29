@@ -1,0 +1,286 @@
+{
+  "Line1": [
+    {
+      "station": "south hampstead",
+      "zone": 2,
+      "order": 1
+    },
+    {
+      "station": "swizz cottage",
+      "zone": 2,
+      "order": 2
+    },
+    {
+      "station": "st johns wood",
+      "zone": 2,
+      "order": 3
+    },
+    {
+      "station": "Baker street",
+      "zone": 1,
+      "order": 4
+    },
+    {
+      "station": "Bond street",
+      "zone": 1,
+      "order": 5
+    },
+    {
+      "station": "Green park",
+      "zone": 1,
+      "order": 6
+    },
+
+    {
+      "station": "Westminister",
+      "zone": 1,
+      "order": 7
+    },
+    {
+      "station": "Waterloo",
+      "zone": 1,
+      "order": 8
+    }
+  ],
+  "line2": [
+    {
+      "station": "Holland Park",
+      "zone": 2,
+      "order": 1
+    },
+    {
+      "station": "Nottinghill gate",
+      "zone": 2,
+      "order": 2
+    },
+    {
+      "station": "Bond street",
+      "zone": 1,
+      "order": 3
+    },
+    {
+      "station": "Oxford Circus",
+      "zone": 1,
+      "order": 4
+    },
+    {
+      "station": "Tottenham Court Road",
+      "zone": 1,
+      "order": 5
+    }
+  ],
+  "line3": [
+    {
+      "station": "Baker street",
+      "zone": 1,
+      "order": 1
+    },
+    {
+      "station": "Regent Park",
+      "zone": 1,
+      "order": 2
+    },
+    {
+      "station": "Oxford Circus",
+      "zone": 1,
+      "order": 3
+    },
+    {
+      "station": "Piccadilly Circus",
+      "zone": 1,
+      "order": 4
+    },
+    {
+      "station": "Charing Cross",
+      "zone": 1,
+      "order": 5
+    },
+    {
+      "station": "Embankment",
+      "zone": 1,
+      "order": 6
+    },
+
+    {
+      "station": "Waterloo",
+      "zone": 1,
+      "order": 7
+    }
+  ],
+  "line4": [
+    {
+      "station": "Warren street",
+      "zone": 1,
+      "order": 1
+    },
+    {
+      "station": "Tottenham Court Road",
+      "zone": 1,
+      "order": 2
+    },
+    {
+      "station": "Leicester square",
+      "zone": 1,
+      "order": 3
+    },
+    {
+      "station": "Charing Cross",
+      "zone": 1,
+      "order": 4
+    },
+    {
+      "station": "Embankment",
+      "zone": 1,
+      "order": 5
+    },
+
+    {
+      "station": "Waterloo",
+      "zone": 1,
+      "order": 6
+    },
+    {
+      "station": "Kennington",
+      "zone": 1,
+      "order": 7
+    },
+    { "station": "Stockwell", "zone": 1, "order": 8 }
+  ],
+  "line5": [
+    {
+      "station": "Warren street",
+      "zone": 1,
+      "order": 1
+    },
+    {
+      "station": "Oxford Circus",
+      "zone": 1,
+      "order": 2
+    },
+    {
+      "station": "Green park",
+      "zone": 1,
+      "order": 3
+    },
+    {
+      "station": "Victoria",
+      "zone": 1,
+      "order": 4
+    },
+    {
+      "station": "Pimlico",
+      "zone": 1,
+      "order": 5
+    },
+
+    {
+      "station": "Vauxhall",
+      "zone": 2,
+      "order": 6
+    },
+    {
+      "station": "Stockwell",
+      "zone": 2,
+      "order": 7
+    }
+  ],
+  "line6": [
+    {
+      "station": "Bayswater",
+      "zone": 1,
+      "order": 1
+    },
+    {
+      "station": "Nottinghill gate",
+      "zone": 2,
+      "order": 2
+    },
+    {
+      "station": "High kensington",
+      "zone": 1,
+      "order": 3
+    },
+    {
+      "station": "Earl's Court",
+      "zone": 2,
+      "order": 4
+    },
+    {
+      "station": "Bond street",
+      "zone": 1,
+      "order": 5
+    },
+    {
+      "station": "Green park",
+      "zone": 1,
+      "order": 6
+    },
+    {
+      "station": "Gloucester Road",
+      "zone": 1,
+      "order": 7
+    },
+    {
+      "station": "South Kensington",
+      "zone": 1,
+      "order": 8
+    },
+    {
+      "station": "Sloan Square",
+      "zone": 1,
+      "order": 9
+    },
+    {
+      "station": "Victoria",
+      "zone": 1,
+      "order": 10
+    },
+    {
+      "station": "Westminister",
+      "zone": 1,
+      "order": 11
+    },
+    {
+      "station": "Embankment",
+      "zone": 1,
+      "order": 12
+    }
+  ],
+  "line7": [
+    {
+      "station": "Leicester square",
+      "zone": 1,
+      "order": 1
+    },
+    {
+      "station": "Piccadilly Circus",
+      "zone": 1,
+      "order": 2
+    },
+    {
+      "station": "Green park",
+      "zone": 1,
+      "order": 3
+    },
+    {
+      "station": "Hyde Park Corner",
+      "zone": 1,
+      "order": 4
+    },
+    {
+      "station": "Knight's Bridge",
+      "zone": 1,
+      "order": 5
+    },
+    {
+      "station": "Gloucester Road",
+      "zone": 1,
+      "order": 6
+    },
+    {
+      "station": "Earl's Court",
+      "zone": 2,
+      "order": 7
+    }
+  ]
+}
