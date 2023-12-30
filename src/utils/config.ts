@@ -1,6 +1,6 @@
-import db from "./utils/db";
+import db from "./db";
 
-const configure_db = async () => {
+const init = async () => {
   try {
     const events_results = await db.query(`CREATE TABLE IF NOT EXISTS user_event
 (
@@ -26,10 +26,10 @@ const configure_db = async () => {
     FOREIGN KEY (event_id) REFERENCES user_event(event_id)
 );`);
 
-    console.log(events_results, zvt_results);
+    // console.log(events_results, zvt_results);
   } catch {
     console.error("TABLE CREATION FAILED!");
   }
 };
 
-export default { configure_db };
+export default { init };

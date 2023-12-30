@@ -1,17 +1,7 @@
+import { Person, TrainlineData } from "../../typings";
 import db from "../utils/db";
-import User from "../../simulatorEngine";
-async function try_db() {
-  try {
-    const results = await db.query("SELECT NOW()");
-    return { message: "Query successful", data: results.rows };
-  } catch (error) {
-    throw error;
-  }
-}
-
-async function new_trial() {
-  return { message: "POST new tea" }; // dummy function for now
-}
+import trainJson from "../information/trainline.json";
+import { User } from "../simulationEngine";
 
 type UserEvent = {
   user_id: string;
@@ -36,59 +26,93 @@ const database_entry = async (
   zero_value_transactions: ZeroValueTransaction
 ) => {
   try {
-    let insert_query = `INSERT INTO user_event (user_id, card_id, location,zone, date) VALUES(${user_event.user_id},${user_event.card_id},${user_event.location},${user_event.zone},${user_event.date}) RETURNING event_id;`;
+    const insertUserEventQuery = `
+      INSERT INTO user_event (user_id, card_id, location, zone, date)
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING event_id;`;
 
-    const userEventResults = await db.query(insert_query);
+    const userEventResults = await db.query(insertUserEventQuery, [
+      user_event.user_id,
+      user_event.card_id,
+      user_event.location,
+      user_event.zone,
+      user_event.date,
+    ]);
 
     const event_id = userEventResults.rows[0].event_id;
 
-    insert_query = `INSERT INTO zero_value_transactions (user_id, card_id, transaction_type, location,zone, date, event_id) VALUES(${zero_value_transactions.user_id},${zero_value_transactions.card_id},${zero_value_transactions.transaction_type},${zero_value_transactions.location},${zero_value_transactions.zone},${zero_value_transactions.date}, ${event_id})`;
+    const insertZeroValueTransactionQuery = `
+      INSERT INTO zero_value_transactions (user_id, card_id, transaction_type, location, zone, date, event_id)
+      VALUES ($1, $2, $3, $4, $5, $6, $7);`;
 
-    const zeroValueTransactionResults = await db.query(insert_query);
+    await db.query(insertZeroValueTransactionQuery, [
+      zero_value_transactions.user_id,
+      zero_value_transactions.card_id,
+      zero_value_transactions.transaction_type,
+      zero_value_transactions.location,
+      zero_value_transactions.zone,
+      zero_value_transactions.date,
+      event_id,
+    ]);
 
     console.log("USER ENTRY CREATED SUCCESSFULLY");
   } catch (err) {
-    console.error("Error occuered while inserting data!!", err);
+    console.error("Error occurred while inserting data!!", err);
   }
 };
 
-const event = async (
-  user: Person,
-  type: string,
+const stationNames = getStationNames(); // Assuming you have a function to retrieve station names
+
+export const simulatedEvent = async (
+  user: User,
+  type: "entry" | "exit",
   location: string,
   zone: number,
   time: string
-) => {
+): Promise<void> => {
   // Event triggers multiple things based on the type
-
-  switch (type) {
-    case "entry":
-    case "exit":
-      database_entry(
-        {
-          user_id: user.id,
-          card_id: user.card.id,
-          location,
-          zone,
-          date: time,
-        },
-        {
-          user_id: user.id,
-          card_id: user.card.id,
-          transaction_type: type,
-          location,
-          zone,
-          date: time,
-        }
-      );
-      // person entered or exited underground station
-      // Database entry in user_events table
-      // ZVT will be triggered
-      // Database entry in zvt table
-      break;
-    default:
-      break;
+  if (!isValidStation(location, stationNames)) {
+    console.error(`Invalid station name: ${location}`);
+    return;
   }
+  /**
+  person entered or exited underground station
+  Database entry in user_events table
+  ZVT will be triggered
+  Database entry in zvt table
+   */
+
+  database_entry(
+    {
+      user_id: user.data.id,
+      card_id: user.data.card.id,
+      location,
+      zone,
+      date: time,
+    },
+    {
+      user_id: user.data.id,
+      card_id: user.card.id,
+      transaction_type: type,
+      location,
+      zone,
+      date: time,
+    }
+  );
 };
 
-export { try_db, new_trial };
+// Helper function to get station names from the configuration file
+function getStationNames(): string[] {
+  // Assuming your configuration file is stored in a variable called 'trainLineConfig'
+  const trainlineJson: TrainlineData = trainJson;
+  const stationNames = trainlineJson.stations.map((station) => station.name);
+  return stationNames;
+}
+
+// Helper function to check if a given location is a valid station name
+function isValidStation(
+  location: string,
+  validStationNames: string[]
+): boolean {
+  return validStationNames.includes(location);
+}

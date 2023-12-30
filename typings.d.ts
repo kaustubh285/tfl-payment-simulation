@@ -1,13 +1,13 @@
-type Person = {
+export type Person = {
   id: string;
   card: Card;
 };
 
-type Card = {
+export type Card = {
   id: string;
 };
 
-type ZeroValueTransaction = {
+export type ZeroValueTransaction = {
   location: string;
   zone: string;
   datetime: string;
@@ -15,8 +15,34 @@ type ZeroValueTransaction = {
   user: Person;
 };
 
-type UserEvent = {
+export type UserEvent = {
   user: Person;
   datetime: string;
   type: string; // eg user enters, user leaves station etc.
 };
+
+export interface Station {
+  name: string;
+  zone: number;
+  lines: LineStation[];
+}
+
+export interface LineStation {
+  name: string;
+  order: number;
+}
+
+export interface Line {
+  name: string;
+  stations: StationOrder[];
+}
+
+export interface StationOrder {
+  name: string;
+  order: number;
+}
+
+export interface TrainlineData {
+  stations: Station[];
+  lines: Line[];
+}
