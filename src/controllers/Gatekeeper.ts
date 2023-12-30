@@ -1,7 +1,7 @@
-import { Person, TrainlineData } from "../../typings";
 import db from "../utils/db";
-import trainJson from "../information/trainline.json";
+
 import { User } from "../simulationEngine";
+import { getStationNames, isValidStation } from "../utils/helper";
 
 type UserEvent = {
   user_id: string;
@@ -100,19 +100,3 @@ export const simulatedEvent = async (
     }
   );
 };
-
-// Helper function to get station names from the configuration file
-function getStationNames(): string[] {
-  // Assuming your configuration file is stored in a variable called 'trainLineConfig'
-  const trainlineJson: TrainlineData = trainJson;
-  const stationNames = trainlineJson.stations.map((station) => station.name);
-  return stationNames;
-}
-
-// Helper function to check if a given location is a valid station name
-function isValidStation(
-  location: string,
-  validStationNames: string[]
-): boolean {
-  return validStationNames.includes(location);
-}

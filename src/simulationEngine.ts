@@ -1,5 +1,5 @@
 import { Person, Card } from "../typings.d";
-import { simulatedEvent } from "./controllers/sentry";
+import { simulatedEvent } from "./controllers/Gatekeeper";
 
 export class User {
   card: Card;
