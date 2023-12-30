@@ -1,7 +1,6 @@
 import db from "../utils/db";
 
-import { User } from "../simulationEngine";
-import { getStationNames, isValidStation } from "../utils/helper";
+import { Event, User } from "../simulationEngine";
 
 type UserEvent = {
   user_id: string;
@@ -21,7 +20,7 @@ type ZeroValueTransaction = {
   event_id?: number;
 };
 
-const database_entry = async (
+export const database_entry = async (
   user_event: UserEvent,
   zero_value_transactions: ZeroValueTransaction
 ) => {
@@ -59,44 +58,4 @@ const database_entry = async (
   } catch (err) {
     console.error("Error occurred while inserting data!!", err);
   }
-};
-
-const stationNames = getStationNames(); // Assuming you have a function to retrieve station names
-
-export const simulatedEvent = async (
-  user: User,
-  type: "entry" | "exit",
-  location: string,
-  zone: number,
-  time: string
-): Promise<void> => {
-  // Event triggers multiple things based on the type
-  if (!isValidStation(location, stationNames)) {
-    console.error(`Invalid station name: ${location}`);
-    return;
-  }
-  /**
-  person entered or exited underground station
-  Database entry in user_events table
-  ZVT will be triggered
-  Database entry in zvt table
-   */
-
-  database_entry(
-    {
-      user_id: user.data.id,
-      card_id: user.data.card.id,
-      location,
-      zone,
-      date: time,
-    },
-    {
-      user_id: user.data.id,
-      card_id: user.card.id,
-      transaction_type: type,
-      location,
-      zone,
-      date: time,
-    }
-  );
 };

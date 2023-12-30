@@ -1,6 +1,8 @@
 import { Person, Card } from "../typings.d";
-import { simulatedEvent } from "./controllers/Gatekeeper";
+import { database_entry } from "./controllers/Gatekeeper";
+import { getStationNames, isValidStation } from "./utils/helper";
 
+const stationNames = getStationNames(); // Assuming you have a function to retrieve station names
 export class User {
   card: Card;
   data: Person;
@@ -16,12 +18,60 @@ export class User {
   }
 }
 
-type Event = {
+export type Event = {
   user: User;
-  eventType: "entry" | "exit";
+  eventType: "entry" | "exit" | "EOD";
   location: string;
   zone: number;
   time: string;
+};
+
+export const simulatedEvent = async ({
+  user,
+  eventType,
+  location,
+  zone,
+  time,
+}: Event): Promise<void> => {
+  // Event triggers multiple things based on the type
+  if (!isValidStation(location, stationNames)) {
+    console.error(`Invalid station name: ${location}`);
+    return;
+  }
+  /**
+  person entered or exited underground station
+  Database entry in user_events table
+  ZVT will be triggered
+  Database entry in zvt table
+   */
+
+  switch (eventType) {
+    case "entry":
+    case "exit":
+      database_entry(
+        {
+          user_id: user.data.id,
+          card_id: user.data.card.id,
+          location,
+          zone,
+          date: time,
+        },
+        {
+          user_id: user.data.id,
+          card_id: user.card.id,
+          transaction_type: eventType,
+          location,
+          zone,
+          date: time,
+        }
+      );
+      break;
+
+    case "EOD":
+
+    default:
+      break;
+  }
 };
 
 function run() {
@@ -76,8 +126,8 @@ function run() {
     },
   ];
 
-  events.forEach(({ user, eventType, location, zone, time }: Event) => {
-    simulatedEvent(user, eventType, location, zone, time);
+  events.forEach((event: Event) => {
+    simulatedEvent(event);
   });
 }
 
