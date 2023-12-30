@@ -9,7 +9,7 @@ const configure_db = async () => {
     card_id text NOT NULL,
     location text,
     zone smallint NOT NULL,
-    date timestamp without time zone
+    date text
 );`);
 
     const zvt_results =
@@ -21,7 +21,7 @@ const configure_db = async () => {
     transaction_type text NOT NULL, -- 'entry' or 'exit'
     location text,
     zone smallint NOT NULL,
-    date timestamp without time zone,
+    date text,
     event_id serial,
     FOREIGN KEY (event_id) REFERENCES user_event(event_id)
 );`);
