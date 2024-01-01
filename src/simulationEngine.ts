@@ -1,5 +1,6 @@
-import { Person, Card } from "../typings.d";
+import { Person, Card, db_zvt_fetch } from "../typings.d";
 import { database_entry } from "./controllers/Gatekeeper";
+import { wayFinder } from "./controllers/Waypointer";
 import { getStationNames, isValidStation } from "./utils/helper";
 
 const stationNames = getStationNames(); // Assuming you have a function to retrieve station names
@@ -74,7 +75,15 @@ export const simulatedEvent = async ({
   }
 };
 
-function run() {
+var groupBy = function (xs, key) {
+  let temp = xs.reduce(function (rv, x) {
+    (rv[x[key]] = rv[x[key]] || []).push(x);
+    return rv;
+  }, {});
+  return Object.values(temp);
+};
+
+async function run() {
   const users = [
     new User("1", "applePay1234"),
     new User("2", "googlePay9824"),
@@ -126,8 +135,33 @@ function run() {
     },
   ];
 
-  events.forEach((event: Event) => {
-    simulatedEvent(event);
+  // events.forEach((event: Event) => {
+  //   simulatedEvent(event);
+  // });
+  console.log("************************");
+  const data: db_zvt_fetch[] = await wayFinder();
+
+  const groupedData = groupBy(data, "user_id");
+
+  groupedData.forEach((travel: db_zvt_fetch[]) => {
+    let travel_zone = [];
+    travel.forEach((event) => {
+      if (!travel_zone.includes(event.zone)) travel_zone.push(event.zone);
+    });
+
+    console.log(travel_zone);
+
+    switch (travel_zone.length) {
+      case 0:
+        console.log("USER PAYMENT 8.50");
+        break;
+      case 1:
+        console.log("USER PAYMENT 9.50");
+        break;
+      case 2:
+        console.log("USER PAYMENT 10.50");
+        break;
+    }
   });
 }
 

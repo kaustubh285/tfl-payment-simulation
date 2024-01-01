@@ -1,7 +1,5 @@
 import db from "../utils/db";
 
-import { Event, User } from "../simulationEngine";
-
 type UserEvent = {
   user_id: string;
   card_id: string;

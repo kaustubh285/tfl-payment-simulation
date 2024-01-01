@@ -10,6 +10,7 @@ const init = async () => {
     location text,
     zone smallint NOT NULL,
     date text
+    created_at timestamp DEFAULT NOW()
 );`);
 
     const zvt_results =
@@ -23,6 +24,7 @@ const init = async () => {
     zone smallint NOT NULL,
     date text,
     event_id serial,
+    created_at timestamp DEFAULT NOW(),
     FOREIGN KEY (event_id) REFERENCES user_event(event_id)
 );`);
 
