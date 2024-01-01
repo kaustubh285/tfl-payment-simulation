@@ -1,2 +1,8 @@
 node_modules
 .env
+
+
+
+# extras for testing
+travel.json
+user_travel.json

@@ -16,3 +16,11 @@ export function isValidStation(
 ): boolean {
   return validStationNames.includes(location);
 }
+
+export const groupBy = function (xs, key) {
+  let temp = xs.reduce(function (rv, x) {
+    (rv[x[key]] = rv[x[key]] || []).push(x);
+    return rv;
+  }, {});
+  return Object.values(temp);
+};
