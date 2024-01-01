@@ -9,7 +9,7 @@ const init = async () => {
     card_id text NOT NULL,
     location text,
     zone smallint NOT NULL,
-    date text
+    date text,
     created_at timestamp DEFAULT NOW()
 );`);
 
@@ -29,8 +29,8 @@ const init = async () => {
 );`);
 
     // console.log(events_results, zvt_results);
-  } catch {
-    console.error("TABLE CREATION FAILED!");
+  } catch (Err) {
+    console.error("TABLE CREATION FAILED!", Err);
   }
 };
 
