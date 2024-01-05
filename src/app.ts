@@ -1,16 +1,27 @@
+// src/app.ts
+
+import express from "express";
 import simulationEngine from "./simulationEngine";
 import config from "./utils/config";
+import apiRoutes from "./api";
 
-function main() {
-  config.init(); // Creates the user_events and the zero value transaction table
-  simulationEngine.run();
+const app = express();
 
-  // GATEKEEPER
-  // WAYPOINTER
-  // FARECOLLECTOR
-  // Matrix
+app.use(express.json());
+app.use("/api", apiRoutes);
 
-  // future scope - Path finder, find cheapest way to travel etc
-}
+config.init(); // Creates the user_events and the zero-value transaction table
+// simulationEngine.run();
 
-main();
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+// GATEKEEPER
+// WAYPOINTER
+// FARECOLLECTOR
+// Matrix
+
+// future scope - Path finder, find cheapest way to travel etc

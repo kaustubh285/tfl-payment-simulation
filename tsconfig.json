@@ -3,10 +3,12 @@
   "compilerOptions": {
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "lib": ["es2019"]
   },
   "include": [
     "src/**/*.ts",
-    "typings.d.ts" // Add this line
+    "typings.d.ts", // Add this line
+    "src/random-d-generate.d.ts"
   ]
 }
