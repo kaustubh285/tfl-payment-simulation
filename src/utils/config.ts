@@ -9,7 +9,8 @@ const init = async () => {
     card_id text NOT NULL,
     location text,
     zone smallint NOT NULL,
-    date text
+    date text,
+    created_at timestamp DEFAULT NOW()
 );`);
 
     const zvt_results =
@@ -23,12 +24,13 @@ const init = async () => {
     zone smallint NOT NULL,
     date text,
     event_id serial,
+    created_at timestamp DEFAULT NOW(),
     FOREIGN KEY (event_id) REFERENCES user_event(event_id)
 );`);
 
     // console.log(events_results, zvt_results);
-  } catch {
-    console.error("TABLE CREATION FAILED!");
+  } catch (Err) {
+    console.error("TABLE CREATION FAILED!", Err);
   }
 };
 

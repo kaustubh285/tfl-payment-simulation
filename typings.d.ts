@@ -46,3 +46,25 @@ export interface TrainlineData {
   stations: Station[];
   lines: Line[];
 }
+
+export type db_zvt_fetch = {
+  transaction_id: number;
+  user_id: string;
+  card_id: string;
+  transaction_type: string;
+  location: string;
+  zone: number;
+  date: string;
+  event_id: number;
+  created_at: Date;
+};
+
+export type JourneyEntry = {
+  user_id: string;
+  from_location: string;
+  from_zone: number;
+  to_location: string;
+  to_zone: number;
+  from_time: string;
+  to_time: string;
+};

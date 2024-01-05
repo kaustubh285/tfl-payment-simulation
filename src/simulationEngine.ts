@@ -1,5 +1,6 @@
-import { Person, Card } from "../typings.d";
+import { Person, Card, db_zvt_fetch } from "../typings.d";
 import { database_entry } from "./controllers/Gatekeeper";
+import { waypointer } from "./controllers/Waypointer";
 import { getStationNames, isValidStation } from "./utils/helper";
 
 const stationNames = getStationNames(); // Assuming you have a function to retrieve station names
@@ -74,7 +75,7 @@ export const simulatedEvent = async ({
   }
 };
 
-function run() {
+async function run() {
   const users = [
     new User("1", "applePay1234"),
     new User("2", "googlePay9824"),
@@ -93,22 +94,22 @@ function run() {
       user: users[0],
       eventType: "exit",
       location: "Vauxhall",
-      zone: 1,
-      time: "2023-01-10T21:39:00",
+      zone: 2,
+      time: "2023-01-10T20:00:00",
     },
     {
       user: users[1],
       eventType: "entry",
       location: "Waterloo",
       zone: 1,
-      time: "2023-01-10T12:30:00",
+      time: "2023-01-10T14:30:00",
     },
     {
       user: users[1],
       eventType: "exit",
       location: "South Hampstead",
       zone: 1,
-      time: "2023-01-10T01:13:20",
+      time: "2023-01-10T19:13:20",
     },
     {
       user: users[2],
@@ -119,16 +120,33 @@ function run() {
     },
     {
       user: users[2],
-      eventType: "entry",
+      eventType: "exit",
       location: "Green Park",
       zone: 1,
       time: "2023-01-10T16:30:05",
     },
+    {
+      user: users[0],
+      eventType: "entry",
+      location: "Vauxhall",
+      zone: 2,
+      time: "2023-01-10T20:30:00",
+    },
+    {
+      user: users[0],
+      eventType: "exit",
+      location: "Warren Street",
+      zone: 1,
+      time: "2023-01-10T21:39:00",
+    },
   ];
 
-  events.forEach((event: Event) => {
-    simulatedEvent(event);
-  });
+  // events.forEach((event: Event) => {
+  //   simulatedEvent(event);
+  // });
+
+  // EVENT: End of Day
+  await waypointer();
 }
 
 export default { run };
